@@ -1,0 +1,42 @@
+### data analistic programming class - use Rstudio
+
+
+1+2
+plot(cars)
+x <- 33+44
+x
+?cars
+
+cars
+
+---------------------------------
+
+# 내장된 데이터셋(dataset) 확인하기
+Package_Data_List <- data(package = .packages(all.available = TRUE))
+Package_Data_List
+
+#dataset 내용 확인하기
+datatsets::iris
+datatsets::cars
+
+#cars 데이터셋을 불러온다
+data("cars")
+#mtcars 데이터셋의 상위 6개 항목 확인
+head(cars)
+
+iris
+
+mtcars
+cars
+
+---------------------------
+
+fah <- readline("Fahrenheit?")
+fah <- as.numeric(fah)
+cel <- (fah - 32)/1.8
+print(paste("Celsius = ", cel))
+source("Fahcel.R") ### 이 (파일명.R)으로 해야 함  console에서 실행
+
+---------------------------------
+
+
