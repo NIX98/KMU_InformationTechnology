@@ -1,0 +1,169 @@
+3weeks-1.R
+
+print("Hello R World")
+
+source("EX.r")
+#R  pdf2weeks 17p
+--------------------------------------------------------------------------
+3weeks-2.R
+
+#작업디렉토리
+getwd()
+setwd("C:/MyWorkSpaceR")
+
+1/2
+plot()
+x <- 33/34
+x
+?cars
+cars
+head(cars)
+tail(cars)
+
+q()
+#작업종료
+save.image()
+
+ls()
+ls.str()
+
+x <- 100
+y <- c(2,3,5,7)
+f <- function(y) (y-32)/1.8
+hero <- c("Superman", "Batman", "Spiderman")
+
+z <-3.14
+z
+
+rm(x,y)
+
+ls()
+rm(list-ls())
+ls()
+hero <- c("Superman", "Batman", "Spiderman")
+save(hero, file="hero.rda")
+rm(hero)
+
+load("hero.")
+---------------------------------------------------------------------
+3weeks-3.R
+
+#작업디렉토리
+getwd()
+setwd("C:/MyWorkSpaceR")
+
+1/2
+plot()
+x <- 33/34
+x
+?cars
+cars
+head(cars)
+tail(cars)
+
+q()
+#작업종료
+save.image()
+
+ls()
+ls.str()
+
+x <- 100
+y <- c(2,3,5,7)
+f <- function(y) (y-32)/1.8
+hero <- c("Superman", "Batman", "Spiderman")
+
+z <-3.14
+z
+
+rm(x,y)
+
+ls()
+rm(list-ls())
+ls()
+hero <- c("Superman", "Batman", "Spiderman")
+save(hero, file="hero.rda")
+rm(hero)
+
+load("hero.")
+
+------------------------------------------------------------------------
+console
+
+> 1+2  입력
+[1] 3  출력
+> c(1,2,3,4,5)
+[1] 1 2 3 4 5
+> 1:5
+[1] 1 2 3 4 5
+> x <- 1:5
+> x
+[1] 1 2 3 4 5
+> y <- 2
+> x+y
+[1] 3 4 5 6 7
+> z <- x+y
+> z
+[1] 3 4 5 6 7
+> x
+[1] 1 2 3 4 5
+> y
+[1] 2
+
+
+> 3<4
+[1] TRUE
+> if (3<4) "Yes" else "No"
+[1] "Yes"
+> m <- matrix(c(1,2,3,4,5,6),3,2)
+> m
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
+> a <- "Tiger"
+> a
+[1] "Tiger"
+> print("welcome to R world")
+[1] "welcome to R world"
+> paste("Tiger", "Lion", "Elephant")
+[1] "Tiger Lion Elephant"
+> myclass <- readline("what is your favorite class?")
+what is your favorite class? Data Anlytics
+> myclass
+[1] "Data Anlytics"
+> paste("My favorite class is", myclass)
+[1] "My favorite class is Data Anlytics"
+
+
+> urban.pop <- c(50, 47, 69, 47, 47, 57, 72, 42, 51, 40)
+> life.exp <- c(67, 72, 77, 65, 74, 75, 76, 59, 72, 60)
+> mean(life.exp)
+[1] 69.7
+> sd(life.exp)
+[1] 6.566751
+> cor(life.exp, urban.pop)
+[1] 0.7778366
+> life.lm <- lm(life.exp ~ urban.pop)
+> life.lm
+
+Call:
+lm(formula = life.exp ~ urban.pop)
+
+Coefficients:
+(Intercept)    urban.pop  
+    44.8678       0.4757  
+    
+    
+    
+> plot(urban.pop, life.exp, col="blue", pch=19, 
++      main="Urban Population Percent vs. Life Expectancy",
++      xlab="Urban plpulation Percent (%)"
++      ylab="Life Expectancy (age)")
+
+
+
+
+
+
+
