@@ -2,16 +2,16 @@
 
 <html>
 <head>
-     <title>POST ¹æ½Ä ¿äÃ»</title>
+     <title>POST ë°©ì‹ ìš”ì²­</title>
 </head>
 <body>
-<!-- JSP ¹®¹ı ÀÛ¼º -->
+<!-- JSP ë¬¸ë²• ì‘ì„± -->
 	<%
 	String strName=request.getParameter("name");
 	String strMajor=request.getParameter("major");
-	out.println("ÀÌ¸§ :" + strName + "<br/>");
-	out.println("ÇĞ°ú :" + strMajor + "<hr/>");
+	out.println("ì´ë¦„ :" + strName + "<br/>");
+	out.println("í•™ê³¼ :" + strMajor + "<hr/>");
 	%>
-	À¥ ºê¶ó¿ìÀú URL ÁÖ¼Ò ÀÔ·Â ºÎºĞÀ» »ìÆìº¸¼¼¿ä.
+	ì›¹ ë¸Œë¼ìš°ì € URL ì£¼ì†Œ ì…ë ¥ ë¶€ë¶„ì„ ì‚´í´ë³´ì„¸ìš”.
 </body>
 </html>
