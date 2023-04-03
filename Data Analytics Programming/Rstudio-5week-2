@@ -1,0 +1,179 @@
+# list structure create
+list(0.6826, 0.9544, 0.9974)
+list <- list(1.23, "Apple", c(2,3,5,7), matrix(1:6, ncol=3), mean)
+
+# list() 비어있는 변수 생성
+lst <- list()
+lst
+lst[[1]] <- 1.23
+lst[[2]] <- "Apple"
+lst[[3]] <- c(2,3,5,7)
+lst[[4]] <- matrix(1:6, ncol=3)
+lst[[5]] <- mean
+lst
+
+# list 이름 부여1: names() 활용
+lst <- list(0.6826, 0.9544, 0.9974)
+lst
+names(lst) <- c("sigma1", "sigma2", "sigma3")
+lst
+names(lst)
+
+# list 이름 부여2: 리스트 생성시 각 이름 앞에 이름을 지정
+lst <- list(sigma1=0.6826, sigma2=0.9544, sigma3=0.9974)
+lst
+
+length(lst)
+
+worldcup1 <- list("Brazil", "South Africa", "Germany")
+worldcup2 <- list("Korea-Japan", "France", "USA")
+worldcup1
+worldcup2
+
+c(worldcup1, worldcup2)
+
+a <- list(1,2,3,4,5,6,7)
+a
+a[]
+mean(a)
+str(a)
+class(a)
+
+# list() 구조는 유연함
+# list()는 통계처리 수학 함수일경우 처리 불가 / 벡터만 가능
+ua <- unlist(a)
+str(ua)
+class(ua)
+
+ua[[1]]
+ua[1]
+ls()
+
+mean(ua)
+mean(unlist(a))
+min(unlist(a))
+max(unlist(a))
+
+----------------------------------------------------------------------------
+
+# list indexing 1
+# 원소접근 [[]] 원소내의 데이터 값을 추출
+# [] 자료에 해당하는 원소를 추출
+# 제품코드, 제품명, 가격
+
+product <- list("A001", "Mouse", 30000)
+product
+
+product[[1]]
+product[[2]]
+product[[3]]
+
+product[3]
+product[2]
+
+class(product[[3]])
+class(product[3])
+
+#list구조는 산술연산 불가
+product[[3]] * 0.9
+#숫자 벡터라 계산이 가능
+product[3] * 0.9
+
+product[c(1,2)]
+
+#논리값은 TRUE로만 남는다
+product[c(FALSE,TRUE,TRUE)]
+product[-1] # - 제거
+
+product <- list(id="A001", name="Mouse", price=30000)
+product[["name"]]
+product[[2]]
+product$name
+
+# list구조로 추출
+product[c("name", "price")]
+
+# 잘못된 색인, 존재하지 않음
+product[["fourth"]]  # null
+product$fourth  # null
+product[[4]]  # error
+
+# 존재하지 않는 4, 5 원소 NULL 존재하는 값은 출력
+product[c(4,2,5)]
+product[c("fourth", "name", "fifth")]
+
+# list에 list포함
+lst <- list(one=1, two=2, three=list(alpha=3.1, beta=3.2))
+lst
+
+# class, str
+lst[["three"]]
+lst[["three"]][["beta"]]
+lst[[3]]
+
+---------------------------------------------------------------------------
+# list indexing 2
+# list 원소 변경, 추가, 삭제 / 값 변경
+
+product <- list(id="A001", name="Mouse", price=30000)
+product
+class(product)
+
+product[[3]] <- 40000
+product[["price"]] <- 50000
+product$price <- 40000
+product
+
+ls()
+# rm(product)
+
+# [[]]일 경우 벡터 형식으로 변경
+product[[3]] <- c(30000, 40000)
+product
+
+# []일 경우 리스트 형식으로 변경
+product[3] <- list(c(40000, 50000))
+product
+
+product[1:3] <- list("A002", "Keyboard", 90000)
+product
+
+# 값 추가
+product[[4]] <- c("Domestic", "Export")
+# product[["TYEP"]] <- c("Domestic", "Export")
+product
+
+# 이름부여
+product$madein <- c("Korea", "China")
+product[["madein"]] <- c("Korea2", "China2")
+product["madein"] <- list(c("Korea3", "China3"))
+product
+
+# 6~9번째
+product[6:9] <- list(0.12, 0.15, 0.22, 0.27)
+product
+
+# 요일별 교통사고 사망자 수
+names <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+values <- c(842,729,786,751,844,851,702)
+traffic.death <- list() # 비어있는 리스트 구조 list()
+traffic.death
+traffic.death[names] <- values
+traffic.death
+
+names(traffic.death) <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+traffic.death
+names(traffic.death) <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+# 특정 원소 삭제
+traffic.death[["Fri"]] <- NULL
+traffic.death
+
+traffic.death[c("Sat", "Sun")] <- NULL
+traffic.death
+
+# 논리값을 활용하여 삭제
+traffic.death < 750
+traffic.death[traffic.death < 750] <- NULL
+traffic.death
+## 리스트 형 이름 변경
