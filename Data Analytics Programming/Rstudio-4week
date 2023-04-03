@@ -1,0 +1,180 @@
+#data structure
+#c() factor() matrix() array() list() data.frame()
+
+xx <- c(1,2,3,4,5)
+yy <- c("A", "B", "C", "A", "B")
+zz <- factor(c("A", "B", "C", "A", "B"))
+xy <- array(1:12, c(2,3,2))
+xz <- data.frame(product=c("A", "B", "C"),
+                 price=c(100,200,300))
+yz <- list(x=c("A", "B", "C", "A", "B"),
+           y=matrix(1:12, 3, 4),
+           z=data.frame(product=c("A", "B", "C"),
+                        price=c(100,200,300)))
+#
+str(xx)
+str(yy)
+str(zz)
+str(xy)
+str(xz)
+str(yz)
+
+----------------------------------------------------------
+##vector create
+
+c(1,2,3,4,5,6,7,8,9,10)
+c("we", "leve", "data", "analytics")
+c(TRUE, FALSE, TRUE, FALSE)
+
+odd <- c(1,3,5)
+even <- c(2,4,6)
+odd
+even
+c(odd, even)
+
+3:9
+9:3
+5:-3
+
+seq(from=3, to=9)
+seq(from=3, to=9, by=2)
+seq(from=3.5, to=1.5, by=-0.5)
+
+seq(from=0, to=100, length.out=5)
+seq(from=-1, to=1, length.out=5)
+
+?rep()
+rep(1, times=3)
+rep(c(1,2,3), times=3)
+rep(c(1,2,3), each=3)
+rep(c(1,2,3), times=c(1,2,3))
+rep(c(1,2,3), length.out=8)
+
+num <- c(1,2,3)
+cha <- c("x", "y", "z")
+c(num, cha)
+# vector structure
+str(num)
+str(cha)
+
+length(num)
+length(cha)
+
+#built-in constatnt vector
+#알파벳 대문자 ,소문자, 원주율, 파이값
+LETTERSletters
+month.name
+month.abb
+pi
+
+month <- c(12,9,3,5,1)
+month
+month.name[month]
+month.abb[month]
+month.name
+
+---------------------------------------------------
+## vector indexing
+# 숫자값, 논리값, 색인값은 1부터 시작
+num <- 0:30
+num
+
+prime <- c(2,3,5,7,11,13,17,19)
+prime
+prime[1]
+prime[0]
+prime[2]
+prime[3]
+
+prime[1:3]
+prime[4:6]
+
+prime[c(1,1,5,5)]
+prime[c(1,3,5,7)]
+prime[c(7,5,3,1)]
+
+indices <- c(1,3,5,7)
+prime[indices]
+# '-' index remove
+prime[-1]
+prime[-1:-2]
+prime[-(1:3)]
+
+length(prime)
+prime[1:(length(prime)-1)]
+prime[-length(prime)]
+
+#change th value using vector index
+prime <- c(2,4,5,7,11,14,17,18)
+prime
+prime[2] <- 3
+prime
+prime[c(6,8)] <- c(13,19)
+prime
+
+#append the value using vector index
+prime <- c(2,3,5,7,11,13,17,19)
+prime
+length(prime)
+prime[9] <23
+prime
+prime[c(10,11)] <- c(29,31)
+prime[15] <-47
+prime
+#NA(Not Available)
+
+#logical calculate
+prime <- c(2,3,5,7,11,13,17,19)
+prime
+prime <10
+prime[prime < 10]
+prime %% 2 == 0
+prime[prime %% 2 == 0]
+
+#매 n번째 원소 추출
+#seq_along() 인수로 주어지는 벡터를 1부터 8까지의 정수추출
+seq_along(prime)
+#논리연산을 이용하여 추출
+seq_along(prime) %% 2 == 0
+prime[seq_along(prime) %% 2 == 0]
+prime[seq_along(prime) %% 3 == 0]
+prime[c(FALSE, TRUE)]
+prime[c(FALSE, FALSE, TRUE)]
+
+#논리값을 인수로 받아서 ture에 해당하는 위치를반환
+# which() which.max() which.min() #fainfall 월별 강수량
+rainfall < c(21.6, 23.6, 45.8, 77.0, 102.2, 133.3, 
+             327.9, 348.0, 137.6, 49.3, 32.0, 24.9)
+rainfall
+rainfall >100
+which(rainfall >100)
+month.name
+month.name[which(rainflal>100)]
+month.abb
+month.abb[which(rainfall>100)]
+rainflal
+rainfall >10
+rainfall[rainfall > 100]
+rainfall[which.min(rainfall)]
+rainfall[which.max(rainfall)]
+
+##요일별 사망자 수
+traffic.death <- c(842, 729, 786, 751, 844, 702)
+traffic.death
+names(traffic.death)
+names(traffic.death) <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+traffic.death
+traffic.death <- c(842, 729, 786, 751, 844, 852, 702)
+names(traffic.death) <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+traffic.death["Sat"]
+traffic.death[c("tue", "Thu", "Sun")]
+weekend <- c("Fri", "Sat,", "Sun")
+traffic.death[weedend]
+
+#사망자수가 800만 넘는 경우의 요일명
+traffic.death > 800
+traffic.death[traffic.death > 800]
+names(traffic.death[traffic.death >800])
+# vector indexing in very important
