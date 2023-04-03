@@ -1,0 +1,218 @@
+# 16:36 # matrix create 2 diesion
+v <- 1:12
+dim(v) <- c(3,4)
+v
+
+v <- 1:12
+matrix(data=v, nrow=3, ncol=4)
+matrix(data=v, nrow=3, ncol=4, byrow=TRUE)
+
+#행렬이름 명시
+rnames <- c("R1", "R2", "R3")
+colnames <- c("c1", "c2", "c3", "c4")
+matrix.test <- matrix(data=v, nrow=3, ncol=4,
+                      dimnames = list(rnames, colnames))
+?matrix
+
+# r에서는 함수를 정해진 수서로만 사용하면 인수명을 안써도 된다
+
+matrix(0, 3, 4)
+?matrix
+
+matrix(NA, 3, 4)
+#행의 개수를 자동으로 지정
+matrix(v, ncol=4)
+
+mat <- matrix(v, ncol=4)
+mat
+str(mat)
+
+#행렬 확인
+dim(mat)
+dim(mat)[1]
+dim(mat)[2]
+nrow(mat)
+ncol(mat)
+length(mat)  #cell갯수가 출력
+
+rbind()  # row
+cbind()  # col
+v1 <- c(1,2,3,4,5)
+v2 <- c(6,7,8,9,10)
+rbind(v1, v2)
+cbind(v1, v2)
+
+#크기가 맞을 경우 가능
+cbind(1:3, 4:6, matrix(7:12, 3, 2))
+rbind(matrix(1:6, 2, 3), matrix(7:12, 2, 3))
+# matrix create
+
+-------------------------------------------------------------------------------------------------------------
+
+# matrix indexing
+v <- 1:12
+mat <- matrix(v, 3, 4)
+mat
+str(mat)
+
+#행렬에서 행 또는 열을 추출하면 차원을 제거해서,
+#1차원의 벡터 형식으로 출력
+mat[1,] #첫번째 행 추출
+mat[,3] #세번째 열 추출
+
+# dorp=FALSE 는 차원을 줄이지 않음
+mat[1,,drop=FALSE]
+mat[,3,drop=FALSE]
+
+mat[2:3,]
+mat[,3:4]
+mat[1:2, 2:3]
+mat[c(1,3),]
+
+#음수 인덱스를 해당 행 또는 열이 제거된 후 출력
+mat[,-c(2,3)]
+mat
+#특정값 대체
+mat[1, 3] <- 77
+mat
+#c()반복
+mat[2,] <- c(22,55)
+mat
+#열이 방향으로 값을 채움
+mat[2:3, 3:4] <- c(1,2,3,4)
+mat
+
+#행열의 행이름과 열이름 지정
+city.distance <- c(0,331,238,269,195,
+                   331,0,95,194,189,
+                   238,95,0,171,130,
+                   269,194,171,0,77,
+                   195,189,130,77,0)
+city.distance
+city.distance.mat <- matrix(city.distance, 5, 5, byrow=TRUE)
+city.distance.mat
+#이름 명명
+colnames(city.distance.mat) <- c("Seoul", "Busan", "Daegu", "Gwangju", "Jeonju")
+city.distance.mat
+rownames(city.distance.mat) <- c("Seoul", "Busan", "Daegu", "Gwangju", "Jeonju")
+city.distance.mat
+rownames(city.distance.mat)
+colnames(city.distance.mat)
+
+city.distance.mat["Seoul", "Busan"]
+city.distance.mat[,"Seoul"]
+city.distance.mat[c("Seoul", "Gwangju"),]
+
+#dimnames(city.distance.mat) <-
+#  list(c("Seoul", "Busan", "Daegu", "Gwangju", "Jeonju"),
+#       c("Seoul", "Busan", "Daegu", "Gwangju", "Jeonju"))
+#dimnames(city.distance.mat)
+
+-----------------------------------------------------------------------------------------------------------------------
+
+# matrix calculate
+mtx <- matrix(1:6, 2, 3)
+mtx
+
+mtx + 1
+mtx - 1
+mtx * 2
+mtx / 2
+
+#행렬 계산은 두 행렬의 차원이 일치해야 함
+a <- matrix(1:6, 2, 3)
+b <-matrix(6:1, 2, 3)
+a
+b
+a + b
+a - b
+a * b
+a / b
+c <- matrix(6:1, 3, 2)
+c
+a
+
+a + c   #차원이 다르면 오류
+a * b
+
+a <- matrix(1:6, 2, 3)
+a
+b <-matrix(6:1, 3, 2)
+b
+
+# 행렬의 곱 계산
+a %% b
+c <- matrix(1:6, 2, 3)
+c
+a
+
+# 수학에서 행렬곱 오류
+a %% c
+
+mtx <- matrix(1:6, 2, 3)
+mtx
+
+# 벡터와의 행렬 곱셈 수행 시 벡터는 곱셈이 가능한 행렬 형식으로 자동 변환
+# 그러나, 행렬 곱셈을 위한 조건을 충족하지 못하면 에러 발생
+# 첫 matrix() 열의 갯수가 3이면 두번재 matrix()행의 갯수가 3
+# 두번째 matrix() 행의 갯수가 3인 수치로 변환 그렇지 않으면 오류
+mtx
+1:3  #3행 1열로 자동 변환
+mtx %% 1:3
+mtx %% 1:2
+1:2 %% mtx
+
+mtx <- matrix(1:6, 2, 3)
+mtx
+
+# vector 재사용 규칙
+mtx + 1:3
+
+rowSums(mtx)
+colsums(mtx)
+rowMeans(mtx)
+colMeans(mtx)
+
+#전치행렬 t()
+mtx
+t(mtx)
+
+1:5
+tt <- t(1:5)
+t(tt)
+
+mtx
+mtx[2,]
+t(mtx[2,])  # 하나의 행을 갖는 행렬로 전치
+
+-------------------------------------------------------------------------------------
+
+# 9:24 벡터는 1차원, 행렬은 2차원
+# 배열3차원이상의 차원을 갖는 데이터 구조
+# dim() 차원을 부여
+a <- 1:24
+dim(a) <- c(3,4,2)
+a
+
+# 3개의 행과 4개의 열과 2개의 테이블
+# 배열은 열의 방향으로 채워짐
+array(1:12, (2,3,2)) #error
+?array
+array(1:12, c(2,3,2))
+
+# 배열에서 특정 값 (행,열)을 추출
+ary <- array(1:12, c(2,3,2))
+ary
+
+# 3개의 차원의 배열에서 값을 가져와도
+# 1개의 차원으로 표현이 가능하면 벡터로 표현됨
+ary[1,3,2]
+ary[,1,2]
+#drop false는 원래의 행렬 값을 유지
+ary[,1,2,drop=FALSE]
+# 3개의 차원의 배열에서 값을 가져와도
+# 2개의 차원으로 표현이 가능하면 행렬로 표현
+ary[2,,]
+
+----------------------------------------------------------------------------------
+
