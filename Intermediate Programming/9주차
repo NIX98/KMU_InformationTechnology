@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS3 Property Basic</title>
+        <style>
+            body{
+                background-image: url('img/puppy.jpg');
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Lorem ipsum dolor amet.</h1>
+        <p>Lorem ipsum dolor sit amt. consectetur adipiscing elit.</p>
+    </body>
+</html>
+------------------------이미지 파일 백그라운드(배경)활용---------------------------
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS3 Property Basic</title>
+        <style>
+            body{
+                background-image: url('img/BackgroundFront.png'), url('img/BackgroundBack.png');
+                background-size: 100%; <- 사이즈 지정
+                background-repeat: no-repeat; <- 반복x
+                
+                • background-attachment 속성: 배경 이미지를 어떠한 방식으로 화면에 붙일 것인지를 지정하는 스타일 속성
+                • background-attachment 속성의 기본 키워드는 scroll 키워드: 화면 스크롤에 따라 배경 이미지가 함께 이동한다는 뜻
+                • background-attachment 속성에 fixed 키워드를 적용 시 스크롤을 내려도 배경 이미지는 고정됨
+                
+                background-position: 키워드;
+                • background-position: X축크기;
+                • background-position: X축크기 Y축크기;
+                • 2개의 값을 입력하면 각각 X축 위치와 Y축 위치를 적용
+                
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1></h1>
+        <p></p>
+    </body>
+</html>
+---------------------이미지 파일 n개  백그라운드(배경)활용  먼저 입력이 먼저 출력----------------------------------
+
+
